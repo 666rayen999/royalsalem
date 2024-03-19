@@ -16,8 +16,7 @@ module.exports = {
         x4: '#655035'
       },
       screens: {
-        'tablet': '720px',
-        'desktop': '1080px'
+        'mobile': '880px'
       },
       borderRadius: {
         'full': '100%',

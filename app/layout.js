@@ -4,7 +4,7 @@ import { Inter } from 'next/font/google'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
-  title: 'Royal Salem Map',
+  title: 'Marhaba Royal Salem Map',
   description: 'A simplified map for Marhaba Royal Salem',
 }
 
