@@ -49,10 +49,10 @@
         "desc3"
       ],
       "gallery": [
-        "/b.jpg",
-        "/m.jpg"
+        "b.jpg",
+        "m.jpg"
       ],
-      "menu": "/m.jpg",
+      "menu": "m.jpg",
       "time": [
         "breakfast 8:00 - 10:00",
         "lunch 20:00 - 22:00"
