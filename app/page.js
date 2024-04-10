@@ -1,11 +1,13 @@
 "use client"
 
 import Image from 'next/image'
+import Link from 'next/link'
 import { IoImages, IoBook, IoClose, IoArrowBackCircle, IoArrowForwardCircle } from 'react-icons/io5'
 
 import data from '@/public/data.json'
 
 import map from '@/public/map.jpg'
+import logo from '@/public/logo.jpg'
 import { useEffect, useState } from 'react'
 
 const Slider = ({ imgs }) => {
@@ -22,7 +24,7 @@ const Slider = ({ imgs }) => {
       <IoArrowBackCircle onClick={Next} size={32} color="#eee8" className="absolute left-2 duration-100 cursor-pointer hover:fill-[#eee]" />
       <IoArrowForwardCircle onClick={Prev} size={32} color="#eee8" className="absolute right-2 duration-100 cursor-pointer hover:fill-[#eee]" />
       <div className="absolute flex flex-row gap-2 bottom-4">
-        {Array.from({length: imgs.length}, (_, i) => (
+        {Array.from({ length: imgs.length }, (_, i) => (
           <div onClick={() => setCurrent(i)} className={`w-2 h-2 rounded-full cursor-pointer ${i == current ? 'bg-[#eee]' : 'bg-[#eee8]'}`} />
         ))}
       </div>
@@ -73,36 +75,20 @@ export default function Home() {
     setShowMenu(false)
   }, [current])
   return (
-    <main className='w-screen h-screen flex items-start mobile:items-center justify-center bg-white mobile:bg-gray-100'>
-      <section className='bg-white w-full mobile:max-w-[calc(100vw_-_4rem)] flex flex-col-reverse mobile:flex-row justify-center mobile:rounded-2xl mobile:overflow-hidden mobile:shadow-2xl'>
-        <div className="flex-1 flex flex-col justify-between p-8 gap-8 bg-white h-auto">
-          <div className='flex flex-col gap-2'>
-            {title && <h1 className="text-3xl font-bold">{title}</h1>}
-            {desc && <ul className="text-black/60 p-4">
-              {desc.map((x, i) => <li key={i}>{x}</li>)}
-              </ul>}
-          </div>
-          <div className='flex justify-between items-end'>
-            {time ? <ul className='text-sm font-bold text-left'>
-              {time.map((x, i) => <li key={i}>{x}</li>)}
-              </ul> : <div className='w-full' />}
-            <div className='flex gap-2'>
-              {gallery && <div onClick={() => { setIsGallery(!isGallery); setShowMenu(false) }} className='border border-neutral-500 p-2 rounded-full group duration-100 hover:bg-neutral-200 cursor-pointer'>
-                <IoImages size={16} color='#525252' className='duration-100 group-hover:fill-neutral-800' />
-              </div>}
-              {menu && <div onClick={() => { setShowMenu(!showMenu); setIsGallery(false)}} className='border border-neutral-500 p-2 rounded-full group duration-100 hover:bg-neutral-200 cursor-pointer'>
-                <IoBook size={16} color='#525252' className='duration-100 group-hover:fill-neutral-800' />
-              </div>}
-            </div>
-          </div>
-        </div>
-        <div className='relative'>
-          <Image src={map} alt='map' className='w-full h-auto mobile:max-h-[calc(100vh_-_4rem)] object-contain' />
+    <main className='w-screen mobile:h-screen flex flex-col items-start mobile:items-center justify-center bg-white mobile:bg-gray-100'>
+      <nav className='w-full bg-white p-2 z-666 flex mobile:hidden flex justify-center'>
+        <Link href="https://www.marhabahotels.tn/en/marhaba-royal-salem-2/">
+          <Image src={logo} alt='logo' className='w-auto h-12 object-contain' />
+        </Link>
+      </nav>
+      <section className='bg-white w-full mobile:max-w-[calc(100vw_-_4rem)] flex flex-col mobile:flex-row justify-center mobile:rounded-2xl mobile:overflow-hidden mobile:shadow-2xl'>
+        <div className='relative aspect-[3/4]'>
+          <Image src={map} alt='map' className='w-full h-full mobile:max-h-[calc(100vh_-_4rem)] object-fit' />
           <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center">
-            <svg className='w-full h-full' viewBox="0 0 396.875 529.16669" style={{strokeWidth: '1pt'}}>
+            <svg className='w-full h-full' viewBox="0 0 396.875 529.16669" style={{ strokeWidth: '1pt' }}>
               {
                 svgData.map((x, i) => (
-                  <path onClick={() => setCurrent(i+1)} className='fill-transparent stroke-transparent hover:cursor-pointer hover:fill-white/40 hover:stroke-neutral-200/80' transform="translate(93.533829,116.08334)" d={x} />
+                  <path onClick={() => setCurrent(i + 1)} className='fill-transparent stroke-transparent hover:cursor-pointer hover:fill-white/40 hover:stroke-neutral-200/80' transform="translate(93.533829,116.08334)" d={x} />
                 ))
               }
             </svg>
@@ -116,7 +102,33 @@ export default function Home() {
             <IoClose onClick={() => setShowMenu(false)} size={32} color="#fff" className="absolute right-2 top-2 duration-100 cursor-pointer hover:fill-[#fffa]" />
           </>}
         </div>
+        <div className="flex-1 flex flex-col justify-between p-8 gap-8 bg-white h-auto">
+          <div className='flex flex-col gap-2'>
+            {title && <h1 className="text-3xl font-bold">{title}</h1>}
+            {desc && <ul className="text-black/60 p-4">
+              {desc.map((x, i) => <li key={i}>{x}</li>)}
+            </ul>}
+          </div>
+          <div className='flex justify-between items-end'>
+            <div className='flex gap-2'>
+              {gallery && <div onClick={() => { setIsGallery(!isGallery); setShowMenu(false) }} className='border border-neutral-500 p-2 rounded-full group duration-100 hover:bg-neutral-200 cursor-pointer'>
+                <IoImages size={16} color='#525252' className='duration-100 group-hover:fill-neutral-800' />
+              </div>}
+              {menu && <div onClick={() => { setShowMenu(!showMenu); setIsGallery(false) }} className='border border-neutral-500 p-2 rounded-full group duration-100 hover:bg-neutral-200 cursor-pointer'>
+                <IoBook size={16} color='#525252' className='duration-100 group-hover:fill-neutral-800' />
+              </div>}
+            </div>
+            {time ? <ul className='text-sm font-bold text-left'>
+              {time.map((x, i) => <li key={i}>{x}</li>)}
+            </ul> : <div className='w-full' />}
+          </div>
+        </div>
       </section>
+      <nav className='bg-white px-4 hover:px-8 duration-200 py-2 absolute -top-4 hover:top-2 rounded-xl shadow-xl z-666 hidden mobile:flex'>
+        <Link href="https://www.marhabahotels.tn/en/marhaba-royal-salem-2/">
+          <Image src={logo} alt='logo' className='w-auto h-10 object-contain' />
+        </Link>
+      </nav>
     </main>
   )
 }
