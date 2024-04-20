@@ -41,9 +41,9 @@
         "from 4 to 12 years old"
       ],
       "gallery": [
-        "/Marhaba_Royal_Salem_miniclub.jpg",
-        "/Marhaba_Royal_Salem_miniclub2.jpg",
-        "/Marhaba_Royal_Salem_miniclub3.jpg"
+        "./Marhaba_Royal_Salem_miniclub.jpg",
+        "./Marhaba_Royal_Salem_miniclub2.jpg",
+        "./Marhaba_Royal_Salem_miniclub3.jpg"
       ]
     },
     {
@@ -75,10 +75,10 @@
         "desc3"
       ],
       "gallery": [
-        "/b.jpg",
-        "/m.jpg"
+        "./b.jpg",
+        "./m.jpg"
       ],
-      "menu": "/m.jpg",
+      "menu": "./m.jpg",
       "time": [
         "breakfast 8:00 - 10:00",
         "lunch 20:00 - 22:00"
@@ -108,11 +108,11 @@
       "id": 18,
       "title": "Marhaba Royal Salem",
       "gallery": [
-        "/Frontview_Marhaba_Royal_Salem.jpg",
-        "/1.Triple_Room_Marhaba_Royal_Salem-2021-.jpg",
-        "/5-Double_room_ Marhaba_Royal_Salem-2021-.jpg",
-        "/Reception_Desk_ Marhaba_Royal_Salem.jpg",
-        "/RoomBath_ Marhaba_Royal_Salem.jpg"
+        "./Frontview_Marhaba_Royal_Salem.jpg",
+        "./1.Triple_Room_Marhaba_Royal_Salem-2021-.jpg",
+        "./5-Double_room_ Marhaba_Royal_Salem-2021-.jpg",
+        "./Reception_Desk_ Marhaba_Royal_Salem.jpg",
+        "./RoomBath_ Marhaba_Royal_Salem.jpg"
       ],
       "desc": [
         "316 Rooms",
